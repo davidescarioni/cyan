@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>sel=0
 cyan = make_colour_rgb(0, 159, 223)
+fscreen=false
 </string>
           </argument>
         </arguments>
@@ -68,12 +69,8 @@ if (kEnter) {
             break;
             
         case 1:
-            if window_get_fullscreen() {
-                window_set_fullscreen(false);
-            }
-            else {
-                window_set_fullscreen(true);
-           }
+            if fscreen == true fscreen = false
+            else fscreen = true
         break;
         
         case 2:
@@ -87,6 +84,19 @@ if (kEnter) {
         
     }
 }
+
+if fscreen==true {
+    width = browser_width - 5
+    height = browser_height - 5
+    window_set_size(width, height)
+    window_center(); 
+} else {
+    width = 480
+    height = 270
+    window_set_size(width, height)
+    window_center(); 
+}
+
 </string>
           </argument>
         </arguments>
